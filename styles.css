@@ -1,0 +1,334 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff; /* White */
+}
+
+/* Make the header sticky */
+header {
+    position: sticky;
+    top: 0;
+    background-color: #fff; /* Background color of the header */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a shadow for better visibility */
+    z-index: 1000; /* Ensure the header stays on top */
+    padding: 10px 20px;
+}
+
+/* Style for the site title */
+/* Make the header sticky */
+header {
+    position: sticky;
+    top: 0;
+    background-color: #fff; /* Background color of the header */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a shadow for better visibility */
+    z-index: 1000; /* Ensure the header stays on top */
+    padding: 10px 20px;
+}
+
+/* Style for the site title */
+header h1 {
+    font-size: 2rem; /* Increase the size of the site title */
+    margin: 0;
+    text-align: left; /* Align the title to the left */
+}
+
+/* Make the header title clickable */
+header h1 a {
+    text-decoration: none; /* Remove underline from the link */
+    color: #333; /* Set the color of the link */
+}
+
+/* Specific styles for Eco and Bites */
+.title-eco {
+    color: black;
+}
+
+.title-bites {
+    color: #FFA500; /* Orange color */
+}
+
+/* Style for the navigation links */
+header nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end; /* Align navigation links to the right */
+    margin: 0;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #333; /* Set the color of the navigation links */
+    font-weight: bold;
+}
+
+header nav ul li a:hover {
+    text-decoration: underline; /* Underline navigation links on hover */
+}
+
+.hero {
+    background-color: #f3f0e5; /* Soft, neutral beige */
+    padding: 20px;
+    text-align: center;
+}
+
+.hero h2 {
+    color: #f7a32b; /* Warm, vibrant orange-yellow */
+}
+
+.hero p, .hero ul {
+    color: #000; /* Rich black for text */
+    font-size: 1.2em;
+}
+
+.hero ul {
+    list-style: none;
+    padding: 0;
+}
+
+.hero ul li {
+    margin: 10px 0;
+}
+
+.search-container {
+    margin-top: 20px;
+}
+
+.search-container input, .search-container button {
+    padding: 10px;
+    font-size: 1em;
+}
+
+.search-container input {
+    width: 70%;
+    border: 1px solid #bdc3c7; /* Light gray */
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.search-container button {
+    background-color: #f7a32b; /* Warm, vibrant orange-yellow */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-container button:hover {
+    background-color: #e69520; /* Slightly darker shade of orange-yellow */
+}
+
+/* Recipe card styles */
+.recipe-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.recipe-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 15px;
+    width: 300px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-card img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.recipe-card h3 {
+    margin: 10px 0;
+    color: #333;
+}
+
+.recipe-card p {
+    color: #666;
+}
+
+.recipe-card .add-to-favorite {
+    background-color: #f7a32b; /* Warm, vibrant orange-yellow */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.recipe-card .add-to-favorite:hover {
+    background-color: #e69520; /* Slightly darker shade of orange-yellow */
+}
+
+/* Submit a Recipe section */
+#submit-recipe {
+    text-align: center;
+    margin: 20px 0;
+    padding-bottom: 60px; /* Add padding to ensure it is visible above the footer */
+}
+
+#submit-recipe-button {
+    background-color: #a3d977; /* Light green */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 1em;
+}
+
+#submit-recipe-button:hover {
+    background-color: #8bc34a; /* Darker shade of light green */
+}
+
+#recipe-form {
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd; /* Light gray */
+    border-radius: 5px;
+    background-color: #f3f0e5; /* Soft, neutral beige */
+    width: 300px;
+}
+
+#recipe-form h3 {
+    color: #f7a32b; /* Warm, vibrant orange-yellow */
+}
+
+#recipe-form label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #000; /* Rich black for text */
+}
+
+#recipe-form input, #recipe-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #bdc3c7; /* Light gray */
+    border-radius: 5px;
+}
+
+#recipe-form button {
+    background-color: #f7a32b; /* Warm, vibrant orange-yellow */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+#recipe-form button:hover {
+    background-color: #e69520; /* Slightly darker shade of orange-yellow */
+}
+
+/* General styling for the note section */
+.note-section {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+/* Heading styling */
+.note-section h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #333;
+    text-align: center;
+}
+
+/* Textarea styling */
+#note-input {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    resize: vertical; /* Allow vertical resizing */
+    transition: border-color 0.3s ease;
+}
+
+#note-input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* Button group styling */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+/* Button styling */
+button {
+    flex: 1;
+    padding: 10px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #f7a32b;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #e69520;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#delete-note {
+    background-color: #dc3545;
+}
+
+#delete-note:hover {
+    background-color: #a71d2a;
+}
+
+/* Status message styling */
+#note-status {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    text-align: center;
+    color: #28a745; /* Green for success messages */
+}
+
+#note-status.error {
+    color: #dc3545; /* Red for error messages */
+}
+
+/* Hidden class */
+.hidden {
+    display: none;
+}
+
+/* Footer styles */
+footer {
+    background-color: #f7a32b; /* Warm, vibrant orange-yellow */
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: auto;
+}

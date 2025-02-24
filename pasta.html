@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe - Pasta</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .recipe-header {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background-color: #f8f8f8;
+        }
+        .recipe-header img {
+            max-width: 300px;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+        .recipe-info {
+            flex-grow: 1;
+        }
+        .recipe-meta {
+            display: flex;
+            gap: 20px;
+        }
+        .meta-item img {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+        .sustainability-ratings {
+            background-color: white;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .sustainability-ratings .rating {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: gold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="index.html"><span class="title-eco">Eco</span><span class="title-bites">Bites</span></a></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="recipes.html">Recipes</a></li>
+                <li><a href="favorites.html">Favorites</a></li>
+                <li><a href="profile.html">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="recipe-header">
+            <img src="images/pasta.png" alt="Pasta">
+            <div class="recipe-info">
+                <h2>Pasta</h2>
+                <div class="recipe-meta">
+                    <div class="meta-item">
+                        <img src="icons/clock.png" alt="Clock Icon">
+                        <span>30 mins</span>
+                    </div>
+                    <div class="meta-item">
+                        <img src="icons/flame.png" alt="Flame Icon">
+                        <span>131 cal per 100g</span>
+                    </div>
+                    <div class="meta-item">
+                        <img src="icons/heart.png" alt="Heart Icon">
+                        <button id="favorite-button">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="recipe-description">
+            <p>Here’s a sustainable Pasta recipe that focuses on plant-based ingredients, minimizes food waste, and uses locally sourced and seasonal vegetables to create a flavorful dish. This recipe is simple, healthy, and reduces environmental impact while still being delicious. Sustainable Pasta Primavera with Seasonal Vegetables</p>
+        </section>
+        <section class="ingredients">
+            <h3>Ingredients</h3>
+            <ul>
+                <li>8 oz (about 225g) whole wheat pasta</li><li>1 tablespoon, extra virgin, sustainably sourced olive oil</li><li>1, sliced (or any seasonal squash) zucchini</li><li>1 cup, halved (or other in-season tomatoes) cherry tomatoes</li><li>1, chopped bell pepper</li><li>1 small bunch, trimmed and cut into 2-inch pieces (or green beans) asparagus</li><li>2 cloves, minced garlic</li><li>1 tablespoon (or zest for more flavor) lemon juice</li><li>to taste salt</li><li>to taste pepper</li><li>chopped (for garnish) basil or parsley</li><li>1/4 cup (optional, for a cheesy flavor) nutritional yeast</li><li>1/4 cup (optional) Parmesan cheese</li><li>1/4 cup (optional for added crunch) roasted sunflower seeds or pine nuts</li>
+            </ul>
+        </section>
+        <section class="instructions">
+            <h3>Instructions</h3>
+            <ol>
+                <li>Cook the whole wheat pasta in a large pot of salted water until al dente (about 9-12 minutes).</li><li>Drain the pasta, reserving 1/2 cup of the pasta water. Set the pasta aside.</li><li>Heat olive oil in a large skillet over medium heat. Add zucchini, bell pepper, and asparagus (or green beans). Sauté for 5-7 minutes until tender but crisp.</li><li>Add cherry tomatoes and garlic, cooking for another 2 minutes until tomatoes soften.</li><li>Add the drained pasta to the skillet with vegetables. Toss to combine, adding the reserved pasta water to help the sauce come together.</li><li>Stir in lemon juice (or zest) and season with salt and pepper to taste.</li><li>Remove from heat and toss in fresh basil or parsley. Optionally, add nutritional yeast or Parmesan, and top with roasted sunflower seeds or pine nuts.</li><li>Serve warm.</li>
+            </ol>
+        </section>
+        <div class="note-section">
+            <h3>Your Notes</h3>
+            <textarea id="note-input" placeholder="Add your notes here..."></textarea>
+            <button id="save-note">Save Note</button>
+            <button id="delete-note" style="display: none;">Delete Note</button>
+            <div id="note-status"></div>
+        </div>
+        <section class="sustainability">
+            <h3>Why This Recipe is Sustainable</h3>
+            <ul>
+                <li>Whole Wheat Pasta: Whole wheat pasta is a healthier option with more fiber and nutrients. It’s also typically produced with less processing than white pasta, making it more environmentally friendly.</li><li>Seasonal Vegetables: This dish uses seasonal and local vegetables like zucchini, cherry tomatoes, bell peppers, and asparagus. Choosing seasonal produce helps reduce food miles and supports local farming.</li><li>Plant-Based: By using only vegetables, this pasta dish is entirely plant-based, which generally has a smaller environmental footprint compared to meat-based dishes.</li><li>Minimal Food Waste: The recipe is flexible, allowing you to use whatever vegetables are in season or leftover from other meals. You can also repurpose vegetable scraps (e.g., stems, peels) into homemade vegetable broth for future use.</li><li>Sustainable Olive Oil: Using olive oil from sustainably sourced producers supports environmentally friendly farming practices.</li>
+            </ul>
+            <div class="sustainability-ratings">
+                <h4>Sustainability Ratings</h4>
+                <div class="rating"><span>Water Usage:</span><span class="gold-stars">★★★★☆</span></div><div class="rating"><span>Energy Impact:</span><span class="gold-stars">★★★★★</span></div><div class="rating"><span>Waste Consideration:</span><span class="gold-stars">★★★☆☆</span></div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 EcoBites. All rights reserved.</p>
+    </footer>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const recipeName = "Pasta"; // Unique key for this recipe
+        const noteInput = document.getElementById("note-input");
+        const saveButton = document.getElementById("save-note");
+        const deleteButton = document.getElementById("delete-note");
+        const noteStatus = document.getElementById("note-status");
+
+        // Load saved note if it exists
+        const savedNote = localStorage.getItem(`note-${recipeName}`);
+        if (savedNote) {
+            noteInput.value = savedNote;
+            deleteButton.style.display = "inline-block";
+        }
+
+        // Save note
+        saveButton.addEventListener("click", function () {
+            const noteContent = noteInput.value.trim();
+            if (noteContent) {
+                localStorage.setItem(`note-${recipeName}`, noteContent);
+                noteStatus.textContent = "Note saved!";
+                deleteButton.style.display = "inline-block";
+            } else {
+                noteStatus.textContent = "Note cannot be empty.";
+            }
+        });
+
+        // Delete note
+        deleteButton.addEventListener("click", function () {
+            localStorage.removeItem(`note-${recipeName}`);
+            noteInput.value = "";
+            noteStatus.textContent = "Note deleted.";
+            deleteButton.style.display = "none";
+        });
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const recipeName = "Pasta"; // Unique identifier for this recipe
+        const favoriteButton = document.getElementById("favorite-button");
+
+        // Load favorites from localStorage
+        let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+        // Check if this recipe is already a favorite
+        if (favorites.includes(recipeName)) {
+            favoriteButton.textContent = "Remove from Favorites";
+        }
+
+        // Toggle favorite status on button click
+        favoriteButton.addEventListener("click", function () {
+            let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+            if (favorites.includes(recipeName)) {
+                // Remove from favorites
+                favorites = favorites.filter(fav => fav !== recipeName);
+                favoriteButton.textContent = "Add to Favorites";
+            } else {
+                // Add to favorites
+                favorites.push(recipeName);
+                favoriteButton.textContent = "Remove from Favorites";
+            }
+
+            // Save updated favorites list to localStorage
+            localStorage.setItem("favorites", JSON.stringify(favorites));
+        });
+    });
+</script>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes - EcoBites</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="search.js"></script>
+    <style>
+        /* Existing styles remain unchanged */
+        .recipes-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .recipe-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+        .recipe-card:hover {
+            transform: translateY(-5px);
+        }
+        .recipe-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .recipe-card h3 {
+            margin: 10px;
+            font-size: 1.5rem;
+        }
+        .recipe-card p {
+            margin: 10px;
+            color: #555;
+        }
+        .search-container {
+            padding: 20px;
+            text-align: center;
+        }
+        .search-container input {
+            padding: 10px;
+            width: 80%;
+            max-width: 500px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .search-container button {
+            padding: 10px 20px;
+            margin-left: 10px;
+            background-color: #FFA500;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .search-container button:hover {
+            background-color: #e69500;
+        }
+        .pagination {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .pagination button {
+            margin: 5px;
+            padding: 10px 15px;
+            border: none;
+            background-color: #FFA500;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .pagination button.active {
+            background-color: #e69500;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="index.html"><span class="title-eco">Eco</span><span class="title-bites">Bites</span></a></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="favorites.html">Favorites</a></li>
+                <li><a href="profile.html">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="search-container">
+            <input id="search-input" type="text" placeholder="Search for recipes...">
+            <button id="search-button">Search</button>
+        </div>
+        <div class="recipes-container" id="recipes-container">
+            <!-- Recipes will be dynamically loaded here -->
+        </div>
+        <div class="pagination" id="pagination-container">
+            <!-- Pagination buttons will be added here -->
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 EcoBites. All rights reserved.</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const container = document.getElementById('recipes-container');
+            const paginationContainer = document.getElementById('pagination-container');
+            const searchInput = document.getElementById('search-input');
+            const searchButton = document.getElementById('search-button');
+            const recipesPerPage = 10;
+            let currentPage = 1;
+            let recipesData = [];
+            let filteredRecipes = [];
+
+            // Function to display recipes
+            function displayRecipes(page, recipeList) {
+                container.innerHTML = ''; // Clear previous recipes
+                paginationContainer.innerHTML = ''; // Clear pagination buttons
+                const startIndex = (page - 1) * recipesPerPage;
+                const endIndex = startIndex + recipesPerPage;
+                const paginatedRecipes = recipeList.slice(startIndex, endIndex);
+
+                paginatedRecipes.forEach(recipe => {
+                    const recipeCard = document.createElement('div');
+                    recipeCard.classList.add('recipe-card');
+                    recipeCard.innerHTML = `
+                        <a href="${recipe.name.toLowerCase().replace(/\s+/g, '_')}.html">
+                            <img src="${recipe.image}" alt="${recipe.name}">
+                            <h3>${recipe.name}</h3>
+                            <p>${recipe.short_description}</p>
+                        </a>
+                    `;
+                    container.appendChild(recipeCard);
+                });
+
+                displayPagination(recipeList);
+            }
+
+            // Function to display pagination buttons
+            function displayPagination(recipeList) {
+                const totalPages = Math.ceil(recipeList.length / recipesPerPage);
+                for (let i = 1; i <= totalPages; i++) {
+                    const button = document.createElement('button');
+                    button.textContent = i;
+                    button.classList.add('pagination-button');
+                    if (i === currentPage) button.classList.add('active');
+                    button.addEventListener('click', () => {
+                        currentPage = i;
+                        displayRecipes(currentPage, recipeList);
+                    });
+                    paginationContainer.appendChild(button);
+                }
+            }
+
+            // Fetch recipes data and display them
+            fetch('recipes.json')
+                .then(response => response.json())
+                .then(data => {
+                    recipesData = data.recipes.sort((a, b) => a.name.localeCompare(b.name)); // Sort alphabetically
+                    filteredRecipes = recipesData; // Default to full list
+                    displayRecipes(currentPage, filteredRecipes);
+                })
+                .catch(error => console.error('Error fetching recipes:', error));
+
+            // Search Button Click Event
+            searchButton.addEventListener('click', function () {
+                const query = searchInput.value.trim();
+                if (query) {
+                    window.location.href = `search_results.html?q=${encodeURIComponent(query)}`;
+                } else {
+                    alert("Please enter a search term.");
+                }
+            });
+
+            // Optional: Support for "Enter" Key Press
+            searchInput.addEventListener('keypress', function (event) {
+                if (event.key === 'Enter') {
+                    const query = searchInput.value.trim();
+                    if (query) {
+                        window.location.href = `search_results.html?q=${encodeURIComponent(query)}`;
+                    } else {
+                        alert("Please enter a search term.");
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

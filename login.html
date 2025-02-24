@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - EcoBites</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+        }
+
+        .signin-container {
+            display: flex;
+            flex: 1;
+        }
+
+        .image-section {
+    flex: 1;
+    background-color: #f7a32b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Prevents overflow issues */
+}
+
+.image-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image fully covers the section */
+}
+
+
+        .form-section {
+            flex: 1;
+            background-color: #f3f0e5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .website-name {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #f7a32b;
+        }
+
+        .form-container {
+            width: 80%;
+            max-width: 400px;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-container input[type="email"],
+        .form-container input[type="password"] {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-container label {
+            margin-bottom: 5px;
+            font-size: 0.9em;
+        }
+
+        .form-container button {
+            background-color: #f7a32b;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-container button:hover {
+            background-color: #e09628;
+        }
+
+        .form-container .footer {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+
+        .form-container .footer a {
+            color: #f7a32b;
+            text-decoration: none;
+        }
+
+        .form-container .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #loading-spinner {
+            display: none;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="signin-container">
+        <div class="image-section">
+            <img src="images/burger.png" alt="Burger Image">
+        </div>
+        <div class="form-section">
+            <div class="website-name">EcoBites</div>
+            <div class="form-container">
+                <h2>Sign In</h2>
+                <form id="signin-form">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email" aria-label="Email Address">
+
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required placeholder="Enter your password" aria-label="Password">
+
+                    <button type="submit" aria-label="Sign In">Sign In <span id="loading-spinner">⏳</span></button>
+                </form>
+                <p id="login-message"></p> <!-- Added login-message element -->
+                <p>Don't have an account? <a href="register.html">Sign Up</a></p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('signin-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+    
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const loginMessage = document.getElementById('login-message');
+    
+            try {
+                const response = await fetch('http://localhost:5000/api/users/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password }),
+                    credentials: 'include' // Ensures cookies are used
+                });
+    
+                const data = await response.json();
+    
+                if (response.ok) {
+                    // ✅ Store the user’s token & details in `localStorage`
+                    localStorage.setItem("authToken", data.token);
+                    localStorage.setItem("loggedInUser", JSON.stringify({ 
+                        name: data.user.name, 
+                        email: data.user.email 
+                    }));
+    
+                    loginMessage.textContent = "Login successful! Redirecting...";
+                    setTimeout(() => window.location.href = "index.html", 2000);
+                } else {
+                    loginMessage.textContent = data.message || "Login failed";
+                }
+            } catch (error) {
+                loginMessage.textContent = "Error connecting to the server.";
+            }
+        });
+    </script>
+    
+    
+
+    <script>
+        document.getElementById('email').addEventListener('input', function() {
+            if (!this.value.includes('@')) {
+                this.setCustomValidity('Please enter a valid email address.');
+            } else {
+                this.setCustomValidity('');
+            }
+        });
+
+        document.getElementById('password').addEventListener('input', function() {
+            if (this.value.length < 6) {
+                this.setCustomValidity('Password must be at least 6 characters.');
+            } else {
+                this.setCustomValidity('');
+            }
+        });
+    </script>
+</body>
+</html>

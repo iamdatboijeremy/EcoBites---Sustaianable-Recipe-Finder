@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe - Yam Porridge</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .recipe-header {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background-color: #f8f8f8;
+        }
+        .recipe-header img {
+            max-width: 300px;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+        .recipe-info {
+            flex-grow: 1;
+        }
+        .recipe-meta {
+            display: flex;
+            gap: 20px;
+        }
+        .meta-item img {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+        .sustainability-ratings {
+            background-color: white;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .sustainability-ratings .rating {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: gold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="index.html"><span class="title-eco">Eco</span><span class="title-bites">Bites</span></a></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="recipes.html">Recipes</a></li>
+                <li><a href="favorites.html">Favorites</a></li>
+                <li><a href="profile.html">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="recipe-header">
+            <img src="images/porridge_yam.png" alt="Yam Porridge">
+            <div class="recipe-info">
+                <h2>Yam Porridge</h2>
+                <div class="recipe-meta">
+                    <div class="meta-item">
+                        <img src="icons/clock.png" alt="Clock Icon">
+                        <span>40 mins</span>
+                    </div>
+                    <div class="meta-item">
+                        <img src="icons/flame.png" alt="Flame Icon">
+                        <span>189 cal per 100g</span>
+                    </div>
+                    <div class="meta-item">
+                        <img src="icons/heart.png" alt="Heart Icon">
+                        <button id="favorite-button">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="recipe-description">
+            <p>A comforting and nutritious dish featuring yam, vegetables, and plant-based seasonings, made sustainably with locally sourced ingredients.</p>
+        </section>
+        <section class="ingredients">
+            <h3>Ingredients</h3>
+            <ul>
+                <li>2 medium-sized (locally sourced if possible) yam</li><li>1 tablespoon (sustainably sourced, or substitute with olive oil) palm oil</li><li>1, chopped (local and in season) onion</li><li>2 cloves, minced garlic</li><li>1 small, chopped (or other seasonal vegetables) bell pepper</li><li>1-2, chopped (or 1/2 cup canned tomatoes) tomatoes</li><li>1 teaspoon (dried or fresh if available) thyme</li><li>1/2 teaspoon (or to taste) ground pepper</li><li>1 tablespoon (optional, or substitute with nutritional yeast) ground crayfish</li><li>1 teaspoon (optional) ground ginger</li><li>1 cup (homemade or low-sodium) vegetable broth</li><li>1/2 cup (or other leafy greens like kale) spinach</li><li>to taste salt</li><li>1/4 cup (optional, like parsley or cilantro) fresh herbs</li><li>1/4 cup (optional, for crunch and protein) roasted peanuts</li>
+            </ul>
+        </section>
+        <section class="instructions">
+            <h3>Instructions</h3>
+            <ol>
+                <li>Peel the yams and cut them into medium cubes. Rinse well and set aside.</li><li>In a large pot, add the cubed yam and enough water to cover them. Bring to a boil, then reduce heat and simmer for 10-15 minutes, or until the yams are soft but still hold their shape. Drain and set aside.</li><li>In the same pot, heat the palm oil (or olive oil) over medium heat. Add the chopped onion and garlic, cooking for 2-3 minutes until softened.</li><li>Add the bell pepper, tomatoes, thyme, ground ginger, and ground pepper. Stir and cook for about 5-7 minutes until the tomatoes soften and release their juices.</li><li>Pour in the vegetable broth and bring to a simmer. Cook the vegetable mixture for an additional 5 minutes.</li><li>Add the cooked yams to the pot and stir to combine. Let the yam cook in the broth and vegetable mix for about 10 minutes to meld the flavors.</li><li>Stir in the spinach, kale, or other leafy greens, cooking for another 2-3 minutes until the greens are wilted.</li><li>Taste and adjust seasoning with salt, pepper, or additional spices as needed.</li><li>Once the porridge yam reaches the desired consistency (thick but not too dry), remove from heat.</li><li>Garnish with fresh herbs like parsley or cilantro and sprinkle roasted peanuts on top before serving.</li>
+            </ol>
+        </section>
+        <div class="note-section">
+            <h3>Your Notes</h3>
+            <textarea id="note-input" placeholder="Add your notes here..."></textarea>
+            <button id="save-note">Save Note</button>
+            <button id="delete-note" style="display: none;">Delete Note</button>
+            <div id="note-status"></div>
+        </div>
+        <section class="sustainability">
+            <h3>Why This Recipe is Sustainable</h3>
+            <ul>
+                <li>Locally Sourced Yam: Reduces the carbon footprint by using locally grown yams.</li><li>Seasonal Vegetables: Flexible and encourages the use of seasonal vegetables like spinach, kale, or peppers.</li><li>Plant-Based: Entirely plant-based, making it eco-friendly with a smaller carbon footprint.</li><li>Homemade Broth: Reduces packaging waste and minimizes food waste by using vegetable scraps.</li><li>Minimal Waste: Encourages using leftovers and fresh ingredients to reduce food waste.</li><li>Energy Efficient: Cooking in one pot and simmering conserves energy during preparation.</li>
+            </ul>
+            <div class="sustainability-ratings">
+                <h4>Sustainability Ratings</h4>
+                <div class="rating"><span>Water Usage:</span><span class="gold-stars">★★★★☆</span></div><div class="rating"><span>Energy Impact:</span><span class="gold-stars">★★★★★</span></div><div class="rating"><span>Waste Consideration:</span><span class="gold-stars">★★★★★</span></div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 EcoBites. All rights reserved.</p>
+    </footer>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const recipeName = "Yam Porridge"; // Unique key for this recipe
+        const noteInput = document.getElementById("note-input");
+        const saveButton = document.getElementById("save-note");
+        const deleteButton = document.getElementById("delete-note");
+        const noteStatus = document.getElementById("note-status");
+
+        // Load saved note if it exists
+        const savedNote = localStorage.getItem(`note-${recipeName}`);
+        if (savedNote) {
+            noteInput.value = savedNote;
+            deleteButton.style.display = "inline-block";
+        }
+
+        // Save note
+        saveButton.addEventListener("click", function () {
+            const noteContent = noteInput.value.trim();
+            if (noteContent) {
+                localStorage.setItem(`note-${recipeName}`, noteContent);
+                noteStatus.textContent = "Note saved!";
+                deleteButton.style.display = "inline-block";
+            } else {
+                noteStatus.textContent = "Note cannot be empty.";
+            }
+        });
+
+        // Delete note
+        deleteButton.addEventListener("click", function () {
+            localStorage.removeItem(`note-${recipeName}`);
+            noteInput.value = "";
+            noteStatus.textContent = "Note deleted.";
+            deleteButton.style.display = "none";
+        });
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const recipeName = "Yam Porridge"; // Unique identifier for this recipe
+        const favoriteButton = document.getElementById("favorite-button");
+
+        // Load favorites from localStorage
+        let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+        // Check if this recipe is already a favorite
+        if (favorites.includes(recipeName)) {
+            favoriteButton.textContent = "Remove from Favorites";
+        }
+
+        // Toggle favorite status on button click
+        favoriteButton.addEventListener("click", function () {
+            let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+            if (favorites.includes(recipeName)) {
+                // Remove from favorites
+                favorites = favorites.filter(fav => fav !== recipeName);
+                favoriteButton.textContent = "Add to Favorites";
+            } else {
+                // Add to favorites
+                favorites.push(recipeName);
+                favoriteButton.textContent = "Remove from Favorites";
+            }
+
+            // Save updated favorites list to localStorage
+            localStorage.setItem("favorites", JSON.stringify(favorites));
+        });
+    });
+</script>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe - Akara</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .recipe-header {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background-color: #f8f8f8;
+        }
+        .recipe-header img {
+            max-width: 300px;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+        .recipe-info {
+            flex-grow: 1;
+        }
+        .recipe-meta {
+            display: flex;
+            gap: 20px;
+        }
+        .meta-item img {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+        .sustainability-ratings {
+            background-color: white;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .sustainability-ratings .rating {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: gold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="index.html"><span class="title-eco">Eco</span><span class="title-bites">Bites</span></a></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="recipes.html">Recipes</a></li>
+                <li><a href="favorites.html">Favorites</a></li>
+                <li><a href="profile.html">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="recipe-header">
+            <img src="images/akara.png" alt="Akara">
+            <div class="recipe-info">
+                <h2>Akara</h2>
+                <div class="recipe-meta">
+                    <div class="meta-item">
+                        <img src="icons/clock.png" alt="Clock Icon">
+                        <span>35 mins</span>
+                    </div>
+                    <div class="meta-item">
+                        <img src="icons/flame.png" alt="Flame Icon">
+                        <span>220 cal per 100g</span>
+                    </div>
+                    <div class="meta-item">
+                        <img src="icons/heart.png" alt="Heart Icon">
+                        <button id="favorite-button">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="recipe-description">
+            <p>Akara is crunchy on the outside and soft on the inside, making it a savory, satisfying treat. It’s an iconic dish in Nigerian and West African cuisine and is often served with a spicy sauce or as a filling accompaniment to other meals.</p>
+        </section>
+        <section class="ingredients">
+            <h3>Ingredients</h3>
+            <ul>
+                <li>2 cups dried black-eyed peas (or any preferred beans)</li><li>1 tablespoon olive oil (or sustainably sourced vegetable oil)</li><li>1 large onion (chopped, local and in season)</li><li>2-3 cloves garlic (minced)</li><li>1-2 scotch bonnet peppers (adjust to spice level)</li><li>1 teaspoon ground cumin (optional, for extra flavor)</li><li>1 teaspoon ground turmeric (optional, for color)</li><li>to taste salt</li><li>1 teaspoon baking powder (for fluffiness)</li><li>1 tablespoon nutritional yeast (or ground crayfish, optional)</li><li>1-2 cups water (for blending)</li><li>1 tablespoon fresh parsley or cilantro (optional, for garnish)</li><li>1-2 tablespoons olive oil (for brushing, optional)</li><li>a pinch ground pepper or paprika (optional, for additional flavor)</li>
+            </ul>
+        </section>
+        <section class="instructions">
+            <h3>Instructions</h3>
+            <ol>
+                <li>Rinse the dried black-eyed peas thoroughly. Soak them in water for 4-6 hours or overnight to soften.</li><li>After soaking, rub the beans between your hands or with a clean cloth to remove the skins. Rinse the beans after peeling.</li><li>In a blender or food processor, combine the soaked and peeled beans, chopped onion, minced garlic, and scotch bonnet peppers. Add water gradually to achieve a thick paste.</li><li>If using cumin, turmeric, or nutritional yeast/ground crayfish, add them to the blender along with salt to taste. Blend until smooth.</li><li>Add baking powder to the mixture and stir well to incorporate.</li><li>Preheat your oven to 375°F (190°C) or prepare a large frying pan if frying the akara.</li><li>Form small balls or patties from the bean mixture using your hands or a spoon and place them on a parchment-lined baking sheet or in the frying pan.</li><li>For baking: Brush the akara patties lightly with olive oil and bake for 25-30 minutes, flipping halfway through.</li><li>For frying: Heat oil in a frying pan over medium heat and fry the akara patties in batches until golden brown and crispy on both sides. Remove from the oil and drain on paper towels.</li><li>Serve warm with a side of spicy tomato sauce or dipping sauce of your choice. Garnish with fresh parsley or cilantro if desired.</li>
+            </ol>
+        </section>
+        <div class="note-section">
+            <h3>Your Notes</h3>
+            <textarea id="note-input" placeholder="Add your notes here..."></textarea>
+            <button id="save-note">Save Note</button>
+            <button id="delete-note" style="display: none;">Delete Note</button>
+            <div id="note-status"></div>
+        </div>
+        <section class="sustainability">
+            <h3>Why This Recipe is Sustainable</h3>
+            <ul>
+                <li>Plant-Based Protein: Beans are nutrient-dense and provide essential fiber and protein without the heavy carbon footprint of animal protein.</li><li>Local and Seasonal Ingredients: Using locally grown beans, onions, and peppers reduces transportation emissions and supports local farmers.</li><li>Minimal Waste: Encourages making vegetable broth from kitchen scraps and storing leftover akara for future use, minimizing waste.</li><li>Alternative Cooking Methods: Baking instead of frying reduces oil usage, making the recipe healthier and more eco-friendly.</li><li>Sustainable Oil Use: Using olive oil or sustainably sourced vegetable oil helps minimize environmental harm.</li><li>Reducing Packaging Waste: Using dried beans instead of canned beans reduces packaging waste, especially if bought in bulk.</li><li>Optional Plant-Based Umami: Nutritional yeast provides a plant-based alternative to ground crayfish, keeping the dish vegan-friendly.</li>
+            </ul>
+            <div class="sustainability-ratings">
+                <h4>Sustainability Ratings</h4>
+                <div class="rating"><span>Water Usage:</span><span class="gold-stars">★★★☆☆</span></div><div class="rating"><span>Energy Impact:</span><span class="gold-stars">★★★★☆</span></div><div class="rating"><span>Waste Consideration:</span><span class="gold-stars">★★★★★</span></div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 EcoBites. All rights reserved.</p>
+    </footer>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const recipeName = "Akara"; // Unique key for this recipe
+        const noteInput = document.getElementById("note-input");
+        const saveButton = document.getElementById("save-note");
+        const deleteButton = document.getElementById("delete-note");
+        const noteStatus = document.getElementById("note-status");
+
+        // Load saved note if it exists
+        const savedNote = localStorage.getItem(`note-${recipeName}`);
+        if (savedNote) {
+            noteInput.value = savedNote;
+            deleteButton.style.display = "inline-block";
+        }
+
+        // Save note
+        saveButton.addEventListener("click", function () {
+            const noteContent = noteInput.value.trim();
+            if (noteContent) {
+                localStorage.setItem(`note-${recipeName}`, noteContent);
+                noteStatus.textContent = "Note saved!";
+                deleteButton.style.display = "inline-block";
+            } else {
+                noteStatus.textContent = "Note cannot be empty.";
+            }
+        });
+
+        // Delete note
+        deleteButton.addEventListener("click", function () {
+            localStorage.removeItem(`note-${recipeName}`);
+            noteInput.value = "";
+            noteStatus.textContent = "Note deleted.";
+            deleteButton.style.display = "none";
+        });
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const recipeName = "Akara"; // Unique identifier for this recipe
+        const favoriteButton = document.getElementById("favorite-button");
+
+        // Load favorites from localStorage
+        let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+        // Check if this recipe is already a favorite
+        if (favorites.includes(recipeName)) {
+            favoriteButton.textContent = "Remove from Favorites";
+        }
+
+        // Toggle favorite status on button click
+        favoriteButton.addEventListener("click", function () {
+            let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+            if (favorites.includes(recipeName)) {
+                // Remove from favorites
+                favorites = favorites.filter(fav => fav !== recipeName);
+                favoriteButton.textContent = "Add to Favorites";
+            } else {
+                // Add to favorites
+                favorites.push(recipeName);
+                favoriteButton.textContent = "Remove from Favorites";
+            }
+
+            // Save updated favorites list to localStorage
+            localStorage.setItem("favorites", JSON.stringify(favorites));
+        });
+    });
+</script>
+
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe - Pepper Soup</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .recipe-header {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background-color: #f8f8f8;
+        }
+        .recipe-header img {
+            max-width: 300px;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+        .recipe-info {
+            flex-grow: 1;
+        }
+        .recipe-meta {
+            display: flex;
+            gap: 20px;
+        }
+        .meta-item img {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+        .sustainability-ratings {
+            background-color: white;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .sustainability-ratings .rating {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: gold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="index.html"><span class="title-eco">Eco</span><span class="title-bites">Bites</span></a></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="recipes.html">Recipes</a></li>
+                <li><a href="favorites.html">Favorites</a></li>
+                <li><a href="profile.html">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="recipe-header">
+            <img src="images/pepper_soup.png" alt="Pepper Soup">
+            <div class="recipe-info">
+                <h2>Pepper Soup</h2>
+                <div class="recipe-meta">
+                    <div class="meta-item">
+                        <img src="icons/clock.png" alt="Clock Icon">
+                        <span>35 mins</span>
+                    </div>
+                    <div class="meta-item">
+                        <img src="icons/flame.png" alt="Flame Icon">
+                        <span>60 cal per 100g</span>
+                    </div>
+                    <div class="meta-item">
+                        <img src="icons/heart.png" alt="Heart Icon">
+                        <button id="favorite-button">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="recipe-description">
+            <p>Pepper soup is a flavorful and spicy broth-based dish popular in Nigeria and other West African countries. It is typically made with meat (like fish, goat, or chicken) or plant-based proteins, along with a variety of aromatic spices, herbs, and vegetables. The broth is light but highly aromatic, often served as a comforting meal or appetizer.</p>
+        </section>
+        <section class="ingredients">
+            <h3>Ingredients</h3>
+            <ul>
+                <li>2 cups preferred protein (fish, chicken, or plant-based options like tofu or tempeh)</li><li>1 tablespoon olive oil (or sustainably sourced vegetable oil)</li><li>1 large onion (chopped, local and in season)</li><li>2-3 cloves garlic (minced)</li><li>2 tablespoons grated ginger</li><li>2-3 scotch bonnet peppers (adjust to spice level)</li><li>2 medium tomatoes (chopped, or canned if fresh is out of season)</li><li>1 teaspoon dried thyme (or fresh if available)</li><li>2-3 bay leaves</li><li>1 tablespoon soy sauce or tamari (low-sodium for health and flavor)</li><li>4 cups vegetable broth (homemade for reduced waste)</li><li>to taste salt and pepper</li><li>1 tablespoon fresh herbs (optional, for garnish)</li>
+            </ul>
+        </section>
+        <section class="instructions">
+            <h3>Instructions</h3>
+            <ol>
+                <li>Cut your protein into bite-sized pieces. Heat oil in a pot and brown the protein (fish, chicken, tofu, etc.) for a few minutes, then set it aside.</li><li>In the same pot, sauté the chopped onions, garlic, and ginger until softened (3-4 minutes). Add the scotch bonnet peppers and cook for another 2 minutes.</li><li>Add the tomatoes, thyme, bay leaves, and vegetable broth to the pot. Bring to a boil and then simmer for 10-15 minutes to let the flavors infuse.</li><li>Add the protein back into the pot and simmer for another 10-15 minutes to cook through. Season with soy sauce (or tamari), salt, and pepper to taste.</li><li>Garnish with fresh herbs and serve hot. You can pair it with yam, plantains, or bread for a complete meal.</li>
+            </ol>
+        </section>
+        <div class="note-section">
+            <h3>Your Notes</h3>
+            <textarea id="note-input" placeholder="Add your notes here..."></textarea>
+            <button id="save-note">Save Note</button>
+            <button id="delete-note" style="display: none;">Delete Note</button>
+            <div id="note-status"></div>
+        </div>
+        <section class="sustainability">
+            <h3>Why This Recipe is Sustainable</h3>
+            <ul>
+                <li>Local and Seasonal Ingredients: Pepper soup often uses locally grown spices, herbs, and vegetables like peppers, onions, and yams. Sourcing these ingredients locally and seasonally reduces transportation costs and supports local farming practices.</li><li>Minimal Waste: Vegetable scraps (such as pepper stems or onion skins) can be used to make homemade vegetable broth. Leftover soup can be easily stored and eaten later, minimizing food waste.</li><li>Reducing Packaging Waste: Using fresh ingredients from local markets or farmers’ markets, rather than pre-packaged ones, reduces the amount of single-use plastic packaging. Homemade broths or seasoning can further cut down on packaging waste.</li><li>Sustainable Oil Use: Choosing oils like sustainably sourced olive oil or coconut oil helps reduce the environmental impact of oil production, especially compared to unsustainably sourced palm oil.</li><li>Optional Plant-Based Flavor Additions: Nutritional yeast, herbs, and spices can be used as plant-based alternatives to traditional animal-derived seasonings like crayfish, further making the dish vegan-friendly.</li>
+            </ul>
+            <div class="sustainability-ratings">
+                <h4>Sustainability Ratings</h4>
+                <div class="rating"><span>Water Usage:</span><span class="gold-stars">★★★★☆</span></div><div class="rating"><span>Energy Impact:</span><span class="gold-stars">★★★☆☆</span></div><div class="rating"><span>Waste Consideration:</span><span class="gold-stars">★★★★★</span></div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 EcoBites. All rights reserved.</p>
+    </footer>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const recipeName = "Pepper Soup"; // Unique key for this recipe
+        const noteInput = document.getElementById("note-input");
+        const saveButton = document.getElementById("save-note");
+        const deleteButton = document.getElementById("delete-note");
+        const noteStatus = document.getElementById("note-status");
+
+        // Load saved note if it exists
+        const savedNote = localStorage.getItem(`note-${recipeName}`);
+        if (savedNote) {
+            noteInput.value = savedNote;
+            deleteButton.style.display = "inline-block";
+        }
+
+        // Save note
+        saveButton.addEventListener("click", function () {
+            const noteContent = noteInput.value.trim();
+            if (noteContent) {
+                localStorage.setItem(`note-${recipeName}`, noteContent);
+                noteStatus.textContent = "Note saved!";
+                deleteButton.style.display = "inline-block";
+            } else {
+                noteStatus.textContent = "Note cannot be empty.";
+            }
+        });
+
+        // Delete note
+        deleteButton.addEventListener("click", function () {
+            localStorage.removeItem(`note-${recipeName}`);
+            noteInput.value = "";
+            noteStatus.textContent = "Note deleted.";
+            deleteButton.style.display = "none";
+        });
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const recipeName = "Pepper Soup"; // Unique identifier for this recipe
+        const favoriteButton = document.getElementById("favorite-button");
+
+        // Load favorites from localStorage
+        let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+        // Check if this recipe is already a favorite
+        if (favorites.includes(recipeName)) {
+            favoriteButton.textContent = "Remove from Favorites";
+        }
+
+        // Toggle favorite status on button click
+        favoriteButton.addEventListener("click", function () {
+            let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+            if (favorites.includes(recipeName)) {
+                // Remove from favorites
+                favorites = favorites.filter(fav => fav !== recipeName);
+                favoriteButton.textContent = "Add to Favorites";
+            } else {
+                // Add to favorites
+                favorites.push(recipeName);
+                favoriteButton.textContent = "Remove from Favorites";
+            }
+
+            // Save updated favorites list to localStorage
+            localStorage.setItem("favorites", JSON.stringify(favorites));
+        });
+    });
+</script>
+</html>

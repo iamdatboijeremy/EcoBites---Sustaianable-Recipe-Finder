@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe - Gizdodo</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .recipe-header {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background-color: #f8f8f8;
+        }
+        .recipe-header img {
+            max-width: 300px;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+        .recipe-info {
+            flex-grow: 1;
+        }
+        .recipe-meta {
+            display: flex;
+            gap: 20px;
+        }
+        .meta-item img {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+        .sustainability-ratings {
+            background-color: white;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .sustainability-ratings .rating {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: gold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="index.html"><span class="title-eco">Eco</span><span class="title-bites">Bites</span></a></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="recipes.html">Recipes</a></li>
+                <li><a href="favorites.html">Favorites</a></li>
+                <li><a href="profile.html">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="recipe-header">
+            <img src="images/gizdodo.png" alt="Gizdodo">
+            <div class="recipe-info">
+                <h2>Gizdodo</h2>
+                <div class="recipe-meta">
+                    <div class="meta-item">
+                        <img src="icons/clock.png" alt="Clock Icon">
+                        <span>50 mins</span>
+                    </div>
+                    <div class="meta-item">
+                        <img src="icons/flame.png" alt="Flame Icon">
+                        <span>253 cal per 100g</span>
+                    </div>
+                    <div class="meta-item">
+                        <img src="icons/heart.png" alt="Heart Icon">
+                        <button id="favorite-button">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="recipe-description">
+            <p>Gizdodo is a popular Nigerian dish made with fried plantains and spicy gizzards. The gizzards are typically marinated and fried, then mixed with sautéed onions, peppers, and tomatoes, creating a savory, flavorful dish. The combination of tender gizzards and sweet plantains offers a balance of protein and carbohydrates, often served as a side or main dish.</p>
+        </section>
+        <section class="ingredients">
+            <h3>Ingredients</h3>
+            <ul>
+                <li>2 medium-sized chicken breasts (or plant-based alternative like tofu or tempeh)</li><li>4 ripe plantains (local and in season)</li><li>1 tablespoon olive oil (or sustainably sourced vegetable oil)</li><li>1 large onion (chopped, local and in season)</li><li>2-3 cloves garlic (minced)</li><li>2 medium tomatoes (chopped, or canned if fresh is out of season)</li><li>1-2 scotch bonnet peppers (adjust to spice level)</li><li>1 tablespoon ground crayfish (optional, or nutritional yeast for a plant-based umami flavor)</li><li>1 teaspoon ground pepper</li><li>1 teaspoon dried thyme (or fresh if available)</li><li>1 tablespoon soy sauce or tamari (low-sodium for health and flavor)</li><li>to taste salt</li><li>1-2 cups vegetable broth (homemade for reduced waste, or water)</li><li>1 tablespoon fresh herbs (optional, for garnish)</li>
+            </ul>
+        </section>
+        <section class="instructions">
+            <h3>Instructions</h3>
+            <ol>
+                <li>Peel and slice the plantains into round or diagonal pieces. Heat some oil in a frying pan over medium heat and fry the plantain slices until golden brown and crispy on both sides. Once fried, set them aside on paper towels to drain excess oil.</li><li>If using chicken, cut it into bite-sized cubes. Heat some oil in a separate frying pan and cook the chicken until golden brown and cooked through. If using tofu or tempeh, cube and sauté in oil until crispy and golden. Set aside.</li><li>In the same pan used for the chicken (or separately if preferred), add a tablespoon of oil and sauté the chopped onions and minced garlic for 2-3 minutes until softened.</li><li>Add the chopped tomatoes, ground crayfish (or nutritional yeast), scotch bonnet peppers, ground pepper, and thyme. Cook for 5-7 minutes until the sauce thickens and the oil begins to rise to the top. Stir occasionally to prevent burning. If the sauce becomes too thick, add a small amount of vegetable broth or water to loosen it.</li><li>Once the sauce is ready, add the cooked chicken (or plant-based protein) to the pan and stir to combine. Let it cook in the sauce for an additional 3-5 minutes, allowing the flavors to meld together. Add soy sauce (or tamari) and salt to taste. For a creamier texture, add a little vegetable broth or water.</li><li>Add the fried plantain slices into the pan with the chicken and sauce, stirring gently to combine. Let it cook together for another 3-4 minutes to ensure the plantains absorb the sauce, becoming flavorful and coated.</li><li>Serve the gizdodo hot, garnished with fresh herbs like parsley or cilantro, if desired.</li>
+            </ol>
+        </section>
+        <div class="note-section">
+            <h3>Your Notes</h3>
+            <textarea id="note-input" placeholder="Add your notes here..."></textarea>
+            <button id="save-note">Save Note</button>
+            <button id="delete-note" style="display: none;">Delete Note</button>
+            <div id="note-status"></div>
+        </div>
+        <section class="sustainability">
+            <h3>Why This Recipe is Sustainable</h3>
+            <ul>
+                <li>Plant-Based Protein Alternative: By using tofu or tempeh instead of traditional animal protein, the carbon footprint of the dish is significantly reduced.</li><li>Local and Seasonal Ingredients: Plantains are locally grown and in-season, making them a more sustainable crop with lower environmental impact.</li><li>Minimal Waste: Encourages using whole, fresh ingredients and repurposing plantain skins for other uses like making snacks or chips.</li><li>Reducing Packaging Waste: Fresh plantains and vegetables reduce the reliance on pre-packaged ingredients, and homemade seasoning blends can replace store-bought condiments.</li><li>Sustainable Oil Use: Opting for sustainably sourced palm oil or alternatives like olive or sunflower oil minimizes environmental harm.</li><li>Optional Plant-Based Flavor Additions: Substituting nutritional yeast for crayfish or adding smoked paprika enhances flavor while keeping the dish vegan-friendly.</li>
+            </ul>
+            <div class="sustainability-ratings">
+                <h4>Sustainability Ratings</h4>
+                <div class="rating"><span>Water Usage:</span><span class="gold-stars">★★★★☆</span></div><div class="rating"><span>Energy Impact:</span><span class="gold-stars">★★★☆☆</span></div><div class="rating"><span>Waste Consideration:</span><span class="gold-stars">★★★★★</span></div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 EcoBites. All rights reserved.</p>
+    </footer>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const recipeName = "Gizdodo"; // Unique key for this recipe
+        const noteInput = document.getElementById("note-input");
+        const saveButton = document.getElementById("save-note");
+        const deleteButton = document.getElementById("delete-note");
+        const noteStatus = document.getElementById("note-status");
+
+        // Load saved note if it exists
+        const savedNote = localStorage.getItem(`note-${recipeName}`);
+        if (savedNote) {
+            noteInput.value = savedNote;
+            deleteButton.style.display = "inline-block";
+        }
+
+        // Save note
+        saveButton.addEventListener("click", function () {
+            const noteContent = noteInput.value.trim();
+            if (noteContent) {
+                localStorage.setItem(`note-${recipeName}`, noteContent);
+                noteStatus.textContent = "Note saved!";
+                deleteButton.style.display = "inline-block";
+            } else {
+                noteStatus.textContent = "Note cannot be empty.";
+            }
+        });
+
+        // Delete note
+        deleteButton.addEventListener("click", function () {
+            localStorage.removeItem(`note-${recipeName}`);
+            noteInput.value = "";
+            noteStatus.textContent = "Note deleted.";
+            deleteButton.style.display = "none";
+        });
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const recipeName = "Gizdodo"; // Unique identifier for this recipe
+        const favoriteButton = document.getElementById("favorite-button");
+
+        // Load favorites from localStorage
+        let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+        // Check if this recipe is already a favorite
+        if (favorites.includes(recipeName)) {
+            favoriteButton.textContent = "Remove from Favorites";
+        }
+
+        // Toggle favorite status on button click
+        favoriteButton.addEventListener("click", function () {
+            let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+            if (favorites.includes(recipeName)) {
+                // Remove from favorites
+                favorites = favorites.filter(fav => fav !== recipeName);
+                favoriteButton.textContent = "Add to Favorites";
+            } else {
+                // Add to favorites
+                favorites.push(recipeName);
+                favoriteButton.textContent = "Remove from Favorites";
+            }
+
+            // Save updated favorites list to localStorage
+            localStorage.setItem("favorites", JSON.stringify(favorites));
+        });
+    });
+</script>
+</html>

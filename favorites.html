@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorites - EcoBites</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1><a href="index.html"><span class="title-eco">Eco</span><span class="title-bites">Bites</span></a></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="recipes.html">Recipes</a></li>
+                <li><a href="profile.html">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="favorites-section">
+            <h2>Your Favorite Recipes</h2>
+            <div class="recipe-container" id="favorites-container">
+                <!-- Favorite recipes will be dynamically populated here -->
+            </div>
+        </section>
+
+        <section id="no-favorites" class="hidden">
+            <p>You have no favorite recipes yet. Browse through our <a href="recipes.html">Recipes</a> and add your favorites!</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 EcoBites. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const favoritesContainer = document.getElementById('favorites-container');
+            const noFavoritesSection = document.getElementById('no-favorites');
+
+            let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+            if (favorites.length > 0) {
+                favorites.forEach(recipe => {
+                    const recipeCard = document.createElement('div');
+                    recipeCard.classList.add('recipe-card');
+                    recipeCard.innerHTML = `
+                        <a href="/${recipe.toLowerCase().replace(/\s+/g, '_')}.html">
+                            <img src="images/${recipe.toLowerCase().replace(/\s+/g, '_')}.png" alt="${recipe}">
+                            <h3>${recipe}</h3>
+                        </a>
+                        <button class="remove-favorite-btn" data-name="${recipe}">Remove</button>
+                    `;
+                    favoritesContainer.appendChild(recipeCard);
+                });
+
+                favoritesContainer.addEventListener('click', function(event) {
+                    if (event.target.classList.contains('remove-favorite-btn')) {
+                        const recipeName = event.target.getAttribute('data-name');
+                        favorites = favorites.filter(fav => fav !== recipeName);
+                        localStorage.setItem('favorites', JSON.stringify(favorites));
+                        event.target.closest('.recipe-card').remove();
+
+                        if (favorites.length === 0) {
+                            noFavoritesSection.classList.remove('hidden');
+                        }
+                    }
+                });
+            } else {
+                noFavoritesSection.classList.remove('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

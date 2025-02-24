@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results - EcoBites</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9; /* Light gray background */
+            color: #333; /* Rich black for text */
+        }
+
+        /* Header Styling */
+        header {
+            position: sticky;
+            top: 0;
+            background-color: #fff; /* White */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            z-index: 1000;
+            padding: 10px 20px;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin: 0;
+            text-align: left;
+        }
+
+        header h1 a {
+            text-decoration: none;
+            color: #333; /* Black for the main title */
+        }
+
+        .title-eco {
+            color: black;
+        }
+
+        .title-bites {
+            color: #FFA500; /* Gold/Orange for "Bites" */
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: flex-end; /* Align links to the right */
+            margin: 0;
+        }
+
+        header nav ul li {
+            margin-left: 20px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: #333; /* Black for navigation links */
+            font-weight: bold;
+        }
+
+        header nav ul li a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+
+        /* Search Bar */
+        .search-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .search-container input, .search-container button {
+            padding: 10px;
+            font-size: 1em;
+        }
+
+        .search-container input {
+            width: 70%;
+            border: 1px solid #bdc3c7; /* Light gray */
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .search-container button {
+            background-color: #f7a32b; /* Vibrant orange-yellow */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .search-container button:hover {
+            background-color: #e69520; /* Slightly darker shade */
+        }
+
+        /* Recipe Cards */
+        .recipe-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .recipe-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin: 15px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for floating effect */
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+        }
+
+        .recipe-card img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .recipe-card h3 {
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .recipe-card h3 a {
+            text-decoration: none;
+            color: #f7a32b; /* Vibrant orange-yellow */
+        }
+
+        .recipe-card p {
+            color: #666;
+        }
+
+        /* Sustainability Ratings */
+        .sustainability-ratings {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .sustainability-ratings span {
+            margin-right: 10px;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+        }
+
+        .rating-icon {
+            font-size: 1.2em;
+            margin-right: 5px;
+        }
+
+        .rating-icon.water {
+            color: #0074D9; /* Blue for water usage */
+        }
+
+        .rating-icon.energy {
+            color: #2ECC40; /* Green for energy impact */
+        }
+
+        .rating-icon.waste {
+            color: #FF4136; /* Red for waste consideration */
+        }
+
+        /* Calorie Count */
+        .calories {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #f7a32b; /* Vibrant orange-yellow */
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1><a href="index.html"><span class="title-eco">Eco</span><span class="title-bites">Bites</span></a></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="recipes.html">Recipes</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search recipes...">
+        <button onclick="searchRecipes()">Search</button>
+    </div>
+
+    <!-- Recipe Cards -->
+    <div class="recipe-container" id="recipe-container">
+        <!-- Recipe cards will be dynamically populated here -->
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2023 EcoBites. All rights reserved.
+    </footer>
+
+    <script>
+        // Fetch recipes from the JSON file
+        let recipes = [];
+
+        async function fetchRecipes() {
+            try {
+                const response = await fetch('recipes.json'); // Load the JSON file
+                const data = await response.json(); // Parse the JSON data
+                recipes = data.recipes; // Store the recipes array
+
+                // Get the query parameter from the URL
+                const urlParams = new URLSearchParams(window.location.search);
+                const query = urlParams.get('q') || ''; // Default to empty string if no query
+
+                // Filter recipes based on the query
+                const filteredRecipes = recipes.filter(recipe =>
+                    recipe.name.toLowerCase().includes(query.toLowerCase()) ||
+                    recipe.short_description.toLowerCase().includes(query.toLowerCase())
+                );
+
+                // Display the filtered recipes
+                displayRecipes(filteredRecipes);
+
+                // Pre-fill the search bar with the query (if any)
+                document.getElementById('search-input').value = query;
+            } catch (error) {
+                console.error('Error loading recipes:', error);
+            }
+        }
+
+        // Function to display recipes
+        function displayRecipes(filteredRecipes) {
+            const container = document.getElementById('recipe-container');
+            container.innerHTML = ''; // Clear previous results
+
+            if (filteredRecipes.length === 0) {
+                container.innerHTML = '<p>No recipes found. Try a different search term.</p>';
+                return;
+            }
+
+            filteredRecipes.forEach(recipe => {
+                const card = document.createElement('div');
+                card.className = 'recipe-card';
+
+                card.innerHTML = `
+                    <img src="${recipe.image}" alt="${recipe.name}">
+                    <h3><a href="${recipe.file}">${recipe.name}</a></h3>
+                    <p>${recipe.short_description}</p>
+                    <div class="sustainability-ratings">
+                        <span><span class="rating-icon water">💧</span> Water Usage: ${recipe.sustainability_ratings.water_usage}/5</span>
+                        <span><span class="rating-icon energy">⚡</span> Energy Impact: ${recipe.sustainability_ratings.energy_impact}/5</span>
+                        <span><span class="rating-icon waste">🗑️</span> Waste Consideration: ${recipe.sustainability_ratings.waste_consideration}/5</span>
+                    </div>
+                    <div class="calories">Calories: ${recipe.calories}</div>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        // Function to search recipes
+        function searchRecipes() {
+            const query = document.getElementById('search-input').value.toLowerCase();
+            const filteredRecipes = recipes.filter(recipe =>
+                recipe.name.toLowerCase().includes(query) ||
+                recipe.short_description.toLowerCase().includes(query)
+            );
+
+            // Update the URL with the new query parameter
+            const newUrl = query ? `?q=${encodeURIComponent(query)}` : window.location.pathname;
+            history.pushState(null, '', newUrl);
+
+            // Display the filtered recipes
+            displayRecipes(filteredRecipes);
+        }
+
+        // Load recipes when the page loads
+        window.onload = fetchRecipes;
+    </script>
+</body>
+</html>

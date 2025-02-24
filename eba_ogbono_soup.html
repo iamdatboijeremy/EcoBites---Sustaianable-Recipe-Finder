@@ -1,0 +1,171 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Eba and Ogbono Soup - EcoBites</title>
+        <link rel="stylesheet" href="styles.css">
+        <style>
+            .recipe-header {
+                display: flex;
+                align-items: center;
+                padding: 20px;
+                background-color: #f8f8f8;
+            }
+
+            .recipe-header img {
+                max-width: 300px;
+                border-radius: 10px;
+                margin-right: 20px;
+            }
+
+            .recipe-info {
+                flex-grow: 1;
+            }
+
+            .recipe-meta {
+                display: flex;
+                gap: 20px;
+            }
+
+            .meta-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .meta-item img {
+                width: 20px;
+                height: 20px;
+                margin-right: 5px;
+            }
+
+            .recipe-description, .ingredients, .instructions, .sustainability {
+                padding: 20px;
+                background-color: #fff;
+                margin-bottom: 20px;
+                border-radius: 10px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            .ingredients ul, .sustainability ul {
+                list-style-type: disc;
+                margin-left: 20px;
+            }
+
+            .instructions ol {
+                margin-left: 20px;
+            }
+
+            .sustainability-ratings {
+                margin-top: 10px;
+            }
+
+            .sustainability-ratings .rating {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1><a href="index.html"><span class="title-eco">Eco</span><span class="title-bites">Bites</span></a></h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="recipes.html">Recipes</a></li>
+                    <li id="favorites-link" class="hidden"><a href="#">Favorites</a></li>
+                    <li id="profile-link"><a href="profile.html">Profile</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main>
+            <section class="recipe-header">
+                <img src="images/eba_ogbono_soup.png" alt="Eba and Ogbono Soup">
+                <div class="recipe-info">
+                    <h2>Eba and Ogbono Soup</h2>
+                    <div class="recipe-meta">
+                        <div class="meta-item">
+                            <img src="icons/clock.png" alt="Clock Icon">
+                            <span>1hr and 30mins</span>
+                        </div>
+                        <div class="meta-item">
+                            <img src="icons/flame.png" alt="Flame Icon">
+                            <div>Eba - 200 cal per 100g</div>
+                            <div>Ogbono soup - 140 cal per 100g</div>
+                        </div>
+                        <div class="meta-item">
+                            <img src="icons/heart.png" alt="Heart Icon">
+                            <button id="add-favorite">Add to Favorites</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="recipe-description">
+                <p>Eba is a classic Nigerian dish made from garri (cassava flour), typically served with a rich, hearty soup. Ogbono Soup (wild mango seed soup) is a flavorful, thick soup often made with meats, fish, and palm oil. This sustainable version focuses on plant-based ingredients, reducing food waste, and using eco-friendly sources while maintaining its deliciousness.</p>
+            </section>
+
+            <section class="ingredients">
+                <h3>Ingredients</h3>
+                <ul>
+                    <li>2 cups garri (cassava flour)</li>
+                    <li>3 cups hot water</li>
+                    <li>2 tablespoons sustainably sourced palm oil or olive oil</li>
+                    <li>1 large onion, chopped</li>
+                    <li>2 cloves garlic, minced</li>
+                    <li>2 medium tomatoes, chopped</li>
+                    <li>1-2 scotch bonnet peppers, chopped (adjust to spice level)</li>
+                    <li>1 tablespoon ground ogbono (wild mango seeds)</li>
+                    <li>1 tablespoon ground crayfish (or nutritional yeast)</li>
+                    <li>1 teaspoon ground pepper</li>
+                    <li>1 teaspoon dried thyme</li>
+                    <li>2 cups vegetable broth</li>
+                    <li>1 cup cooked beans (black-eyed peas, kidney beans, or chickpeas)</li>
+                    <li>1/2 cup tofu or tempeh (optional)</li>
+                    <li>Salt to taste</li>
+                    <li>Fresh herbs (parsley or cilantro, optional) for garnish</li>
+                </ul>
+            </section>
+
+            <section class="instructions">
+                <h3>Instructions</h3>
+                <ol><li>Bring 3 cups of water to a boil in a medium-sized pot.</li><li>Gradually add the garri to the boiling water, stirring continuously to avoid lumps.</li><li>Stir until smooth and thick. Adjust water as needed for preferred consistency.</li><li>Mold the eba into a smooth, round shape and set aside.</li><li>In a large pot, heat the sustainably sourced palm oil (or olive oil) over medium heat.</li><li>Add chopped onions and minced garlic, sautéing for 2-3 minutes until softened.</li><li>Add chopped tomatoes, scotch bonnet peppers, ground ogbono, ground crayfish (or nutritional yeast), ground pepper, and thyme. Cook for 5-7 minutes until fragrant.</li><li>Stir occasionally, adding a small amount of vegetable broth if needed to prevent burning.</li><li>Add cooked beans and tofu (or tempeh), stirring well.</li><li>Pour in the vegetable broth and bring to a simmer. Cook for 10-15 minutes, allowing flavors to blend.</li><li>Add salt to taste and adjust consistency with more broth or water if needed.</li><li>Serve the Ogbono soup with the Eba, garnished with fresh herbs if desired.</li></ol>
+            </section>
+            <div class="note-section">
+                <h3>Your Notes</h3>
+                <textarea id="note-input" placeholder="Add your notes here..."></textarea>
+                <button id="save-note">Save Note</button>
+                <button id="delete-note" style="display: none;">Delete Note</button>
+                <div id="note-status"></div>
+            </div>
+            <section class="sustainability">
+                <h3>Why This Recipe is Sustainable</h3>
+                <div class="sustainability-ratings">
+                    <h4>Sustainability Ratings</h4>
+                    <div class="rating">
+                        <span>Water Usage:</span>
+                        <span>★★★★☆</span>
+                    </div>
+                    <div class="rating">
+                        <span>Energy Impact:</span>
+                        <span>★★★★☆</span>
+                    </div>
+                    <div class="rating">
+                        <span>Waste Consideration:</span>
+                        <span>★★★★★</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2025 EcoBites. All rights reserved.</p>
+        </footer>
+        <script src="/notes.js"></script>
+    </body>
+    </html>
+    

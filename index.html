@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>EcoBites</title>
+    <link href="styles.css" rel="stylesheet"/>
+    <script defer src="search.js"></script>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9; /* Light gray background */
+            color: #333; /* Rich black for text */
+        }
+
+        /* Header Styling */
+        header {
+            position: sticky;
+            top: 0;
+            background-color: #fff; /* White */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            z-index: 1000;
+            padding: 10px 20px;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin: 0;
+            text-align: left;
+        }
+
+        header h1 a {
+            text-decoration: none;
+            color: #333; /* Black for the main title */
+        }
+
+        .title-eco {
+            color: black;
+        }
+
+        .title-bites {
+            color: #FFA500; /* Gold/Orange for "Bites" */
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: flex-end; /* Align links to the right */
+            margin: 0;
+        }
+
+        header nav ul li {
+            margin-left: 20px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: #333; /* Black for navigation links */
+            font-weight: bold;
+        }
+
+        header nav ul li a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #f3f0e5; /* Soft beige */
+            padding: 20px;
+            text-align: center;
+        }
+
+        .hero h2 {
+            color: #f7a32b; /* Vibrant orange-yellow */
+        }
+
+        .hero p {
+            color: #000; /* Rich black for text */
+            font-size: 1.2em;
+        }
+
+        /* Search Bar */
+        .search-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .search-container input, .search-container button {
+            padding: 10px;
+            font-size: 1em;
+        }
+
+        .search-container input {
+            width: 70%;
+            border: 1px solid #bdc3c7; /* Light gray */
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .search-container button {
+            background-color: #f7a32b; /* Vibrant orange-yellow */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .search-container button:hover {
+            background-color: #e69520; /* Slightly darker shade */
+        }
+
+        /* Recipe Cards */
+        .recipe-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .recipe-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin: 15px;
+            padding: 15px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for floating effect */
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+        }
+
+        .recipe-card img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .recipe-card h3 {
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .recipe-card h3 a {
+            text-decoration: none;
+            color: #f7a32b; /* Vibrant orange-yellow */
+        }
+
+        .recipe-card p {
+            color: #666;
+        }
+
+        /* Sustainability Ratings */
+        .sustainability-ratings {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .sustainability-ratings span {
+            margin-right: 10px;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+        }
+
+        .rating-icon {
+            font-size: 1.2em;
+            margin-right: 5px;
+        }
+
+        .rating-icon.water {
+            color: #0074D9; /* Blue for water usage */
+        }
+
+        .rating-icon.energy {
+            color: #2ECC40; /* Green for energy impact */
+        }
+
+        .rating-icon.waste {
+            color: #FF4136; /* Red for waste consideration */
+        }
+
+        /* Calorie Count */
+        .calories {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #f7a32b; /* Vibrant orange-yellow */
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1><a href="index.html"><span class="title-eco">Eco</span><span class="title-bites">Bites</span></a></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="recipes.html">Recipes</a></li>
+                <li class="hidden" id="favorites-link"><a href="favorites.html">Favorites</a></li>
+                <li id="sign-in-link"><a href="login.html">Sign In</a></li>
+                <li class="hidden" id="profile-link"><a href="profile.html">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Welcome to EcoBites</h2>
+            <p>Let’s make the world a little greener, one delicious bite at a time! 🌱</p>
+            <div class="search-container">
+                <input id="search-input" placeholder="Search for recipes..." type="text"/>
+                <button id="search-button">Search</button>
+            </div>
+        </section>
+        <section id="trending-recipes">
+            <h2>Trending Recipes</h2>
+            <div class="recipe-container" id="trending-recipes-container"></div>
+        </section>
+        <section class="hidden" id="favorite-recipes">
+            <h2>Favorite Recipes</h2>
+            <div class="recipe-container" id="favorite-recipes-container"></div>
+        </section>
+        <section id="submit-recipe">
+            <h2>Wanna Share Your Recipes?</h2>
+            <p>Click the button below to submit your delicious and eco-friendly recipes!</p>
+            <button id="submit-recipe-button">Submit A Recipe</button>
+            <form class="hidden" id="recipe-form">
+                <h3>Submit Your Recipe</h3>
+                <label for="recipe-title">Recipe Title:</label>
+                <input id="recipe-title" name="recipe-title" required type="text"/>
+                <label for="recipe-description">Description:</label>
+                <textarea id="recipe-description" name="recipe-description" required></textarea>
+                <label for="recipe-image">Image URL:</label>
+                <input id="recipe-image" name="recipe-image" required type="url"/>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>© 2025 EcoBites. All rights reserved.</p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // ✅ Get stored user data
+            let user = JSON.parse(localStorage.getItem("loggedInUser"));
+            let token = localStorage.getItem("authToken");
+            console.log("Checking Token on Index:", token);
+            if (!user || !token) {
+                console.log("No valid user session found. Showing login state.");
+                document.getElementById("profile-link").classList.add("hidden");
+                document.getElementById("favorites-link").classList.add("hidden");
+                document.getElementById("sign-in-link").classList.remove("hidden");
+            } else {
+                console.log("User Logged In:", user);
+                document.getElementById("sign-in-link").classList.add("hidden");
+                document.getElementById("profile-link").classList.remove("hidden");
+                document.getElementById("favorites-link").classList.remove("hidden");
+            }
+
+            // Redirect to search results page with query parameter
+            document.getElementById("search-button").addEventListener("click", function () {
+                const query = document.getElementById("search-input").value.trim();
+                if (query) {
+                    // Redirect to the search results page with the query parameter
+                    window.location.href = `search_results.html?q=${encodeURIComponent(query)}`;
+                } else {
+                    alert("Please enter a search term.");
+                }
+            });
+
+            // Optional: Allow pressing "Enter" to trigger the search
+            document.getElementById("search-input").addEventListener("keypress", function (event) {
+                if (event.key === "Enter") {
+                    document.getElementById("search-button").click();
+                }
+            });
+
+            // Fetch trending recipes from the JSON file
+            fetch('recipes.json')
+                .then(response => response.json())
+                .then(data => {
+                    const trendingRecipes = ["Jollof Rice", "Pasta", "Beans (Ewa Agoyin)", "Egusi Soup"];
+                    const container = document.getElementById('trending-recipes-container');
+                    data.recipes.forEach(recipe => {
+                        if (trendingRecipes.includes(recipe.name)) {
+                            const recipeCard = document.createElement('div');
+                            recipeCard.classList.add('recipe-card');
+                            recipeCard.innerHTML = `
+                                <a href="${recipe.file}">
+                                    <img src="${recipe.image}" alt="${recipe.name}">
+                                    <h3>${recipe.name}</h3>
+                                    <p>${recipe.short_description}</p>
+                                </a>
+                                <div class="sustainability-ratings">
+                                    <span><span class="rating-icon water">💧</span> Water Usage: ${recipe.sustainability_ratings.water_usage}/5</span>
+                                    <span><span class="rating-icon energy">⚡</span> Energy Impact: ${recipe.sustainability_ratings.energy_impact}/5</span>
+                                    <span><span class="rating-icon waste">🗑️</span> Waste Consideration: ${recipe.sustainability_ratings.waste_consideration}/5</span>
+                                </div>
+                                <div class="calories">Calories: ${recipe.calories}</div>
+                            `;
+                            container.appendChild(recipeCard);
+                        }
+                    });
+                })
+                .catch(error => console.error('Error loading recipes:', error));
+        });
+
+        document.getElementById("submit-recipe-button").addEventListener("click", function () {
+                document.getElementById("recipe-form").classList.toggle("hidden");
+            });
+
+            document.getElementById("recipe-form").addEventListener("submit", function (event) {
+                event.preventDefault();
+                const title = document.getElementById("recipe-title").value;
+                const description = document.getElementById("recipe-description").value;
+                const imageUrl = document.getElementById("recipe-image").value;
+                const newRecipe = { title, description, imageUrl };
+
+                let storedRecipes = JSON.parse(localStorage.getItem("submittedRecipes")) || [];
+                storedRecipes.push(newRecipe);
+                localStorage.setItem("submittedRecipes", JSON.stringify(storedRecipes));
+
+                alert("Recipe submitted successfully!");
+                document.getElementById("recipe-form").reset();
+                document.getElementById("recipe-form").classList.add("hidden");
+                displaySubmittedRecipes();
+            });
+    </script>
+</body>
+</html>

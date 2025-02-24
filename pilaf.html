@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe - Pilaf</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .recipe-header {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background-color: #f8f8f8;
+        }
+        .recipe-header img {
+            max-width: 300px;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+        .recipe-info {
+            flex-grow: 1;
+        }
+        .recipe-meta {
+            display: flex;
+            gap: 20px;
+        }
+        .meta-item img {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+        .sustainability-ratings {
+            background-color: white;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .sustainability-ratings .rating {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: gold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="index.html"><span class="title-eco">Eco</span><span class="title-bites">Bites</span></a></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="recipes.html">Recipes</a></li>
+                <li><a href="favorites.html">Favorites</a></li>
+                <li><a href="profile.html">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="recipe-header">
+            <img src="images/pilaf.png" alt="Pilaf">
+            <div class="recipe-info">
+                <h2>Pilaf</h2>
+                <div class="recipe-meta">
+                    <div class="meta-item">
+                        <img src="icons/clock.png" alt="Clock Icon">
+                        <span>35 mins</span>
+                    </div>
+                    <div class="meta-item">
+                        <img src="icons/flame.png" alt="Flame Icon">
+                        <span>359 cal per 100g</span>
+                    </div>
+                    <div class="meta-item">
+                        <img src="icons/heart.png" alt="Heart Icon">
+                        <button id="favorite-button">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="recipe-description">
+            <p>A Sustainable Vegetable Pilaf using whole grains, seasonal vegetables, and plant-based ingredients to create a flavorful and eco-friendly dish.</p>
+        </section>
+        <section class="ingredients">
+            <h3>Ingredients</h3>
+            <ul>
+                <li>1 cup (or any locally sourced whole grain like quinoa, farro, or barley) brown rice</li><li>2 tablespoons (extra virgin and sustainably sourced) olive oil</li><li>1, chopped (local and in season) onion</li><li>2 cloves, minced garlic</li><li>1, diced (or any seasonal root vegetable) carrot</li><li>1, diced (or other seasonal vegetables like zucchini or eggplant) bell pepper</li><li>1/2 cup (fresh or frozen, or any other green veggie like green beans) peas</li><li>1 teaspoon (dried or fresh if available) thyme</li><li>1 teaspoon (or another preferred spice like coriander or turmeric) ground cumin</li><li>1 bay leaf</li><li>2 cups (preferably homemade or low-sodium) vegetable broth</li><li>to taste salt and pepper</li><li>1/4 cup chopped (like parsley, cilantro, or mint) fresh herbs</li><li>Optional (like sunflower seeds, almonds, or pine nuts) toasted nuts or seeds</li>
+            </ul>
+        </section>
+        <section class="instructions">
+            <h3>Instructions</h3>
+            <ol>
+                <li>Rinse the brown rice under cold water to remove excess starch. Drain and set aside.</li><li>Heat the olive oil in a large pot or deep skillet over medium heat. Add the chopped onion and cook for 3-4 minutes until softened.</li><li>Add the garlic, carrots, and bell pepper (or other seasonal vegetables). Cook for 5-7 minutes, stirring occasionally, until the vegetables are softened and slightly caramelized.</li><li>Add the thyme, cumin, bay leaf, salt, and pepper to the vegetables. Stir to coat the vegetables in the spices, and let the spices cook for a minute to enhance their aroma.</li><li>Add the rinsed rice to the pot, stirring to mix it with the vegetables and spices.</li><li>Pour in the vegetable broth, bring to a boil, then reduce the heat to low. Cover the pot and simmer for 35-40 minutes, or until the rice is cooked and the liquid has been absorbed. Adjust cooking time for different grains as needed.</li><li>About 5 minutes before the rice is done cooking, stir in the peas (or other green vegetables). Cover again and allow them to steam until the rice is cooked through.</li><li>Once the rice is cooked, remove the pot from heat and let it sit, covered, for 5 minutes. Remove the bay leaf and fluff the rice with a fork.</li><li>Stir in the chopped fresh herbs and adjust seasoning if needed.</li><li>Serve the pilaf warm as a main dish or a side. Garnish with toasted nuts or seeds for added texture.</li>
+            </ol>
+        </section>
+        <div class="note-section">
+            <h3>Your Notes</h3>
+            <textarea id="note-input" placeholder="Add your notes here..."></textarea>
+            <button id="save-note">Save Note</button>
+            <button id="delete-note" style="display: none;">Delete Note</button>
+            <div id="note-status"></div>
+        </div>
+        <section class="sustainability">
+            <h3>Why This Recipe is Sustainable</h3>
+            <ul>
+                <li>Whole Grains: Using whole grains like brown rice, quinoa, or barley provides more nutrients and is less processed, reducing environmental impact.</li><li>Seasonal and Local Vegetables: This recipe adapts to what’s in season and local, lowering food miles and supporting local farming.</li><li>Plant-Based: Entirely plant-based, this dish has a smaller carbon footprint than meat-based dishes.</li><li>Homemade Broth: Using homemade vegetable broth from scraps reduces waste and avoids packaged alternatives.</li><li>Minimal Waste: Encourages using leftovers and seasonal produce to reduce food waste.</li><li>Energy Efficient Cooking: Brown rice, when cooked with the lid on, retains heat well, reducing energy usage.</li>
+            </ul>
+            <div class="sustainability-ratings">
+                <h4>Sustainability Ratings</h4>
+                <div class="rating"><span>Water Usage:</span><span class="gold-stars">★★★★☆</span></div><div class="rating"><span>Energy Impact:</span><span class="gold-stars">★★★★★</span></div><div class="rating"><span>Waste Consideration:</span><span class="gold-stars">★★★★★</span></div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 EcoBites. All rights reserved.</p>
+    </footer>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const recipeName = "Pilaf"; // Unique key for this recipe
+        const noteInput = document.getElementById("note-input");
+        const saveButton = document.getElementById("save-note");
+        const deleteButton = document.getElementById("delete-note");
+        const noteStatus = document.getElementById("note-status");
+
+        // Load saved note if it exists
+        const savedNote = localStorage.getItem(`note-${recipeName}`);
+        if (savedNote) {
+            noteInput.value = savedNote;
+            deleteButton.style.display = "inline-block";
+        }
+
+        // Save note
+        saveButton.addEventListener("click", function () {
+            const noteContent = noteInput.value.trim();
+            if (noteContent) {
+                localStorage.setItem(`note-${recipeName}`, noteContent);
+                noteStatus.textContent = "Note saved!";
+                deleteButton.style.display = "inline-block";
+            } else {
+                noteStatus.textContent = "Note cannot be empty.";
+            }
+        });
+
+        // Delete note
+        deleteButton.addEventListener("click", function () {
+            localStorage.removeItem(`note-${recipeName}`);
+            noteInput.value = "";
+            noteStatus.textContent = "Note deleted.";
+            deleteButton.style.display = "none";
+        });
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const recipeName = "Pilaf"; // Unique identifier for this recipe
+        const favoriteButton = document.getElementById("favorite-button");
+
+        // Load favorites from localStorage
+        let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+        // Check if this recipe is already a favorite
+        if (favorites.includes(recipeName)) {
+            favoriteButton.textContent = "Remove from Favorites";
+        }
+
+        // Toggle favorite status on button click
+        favoriteButton.addEventListener("click", function () {
+            let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+            if (favorites.includes(recipeName)) {
+                // Remove from favorites
+                favorites = favorites.filter(fav => fav !== recipeName);
+                favoriteButton.textContent = "Add to Favorites";
+            } else {
+                // Add to favorites
+                favorites.push(recipeName);
+                favoriteButton.textContent = "Remove from Favorites";
+            }
+
+            // Save updated favorites list to localStorage
+            localStorage.setItem("favorites", JSON.stringify(favorites));
+        });
+    });
+</script>
+</html>

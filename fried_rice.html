@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe - Fried Rice</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .recipe-header {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background-color: #f8f8f8;
+        }
+        .recipe-header img {
+            max-width: 300px;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+        .recipe-info {
+            flex-grow: 1;
+        }
+        .recipe-meta {
+            display: flex;
+            gap: 20px;
+        }
+        .meta-item img {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+        .sustainability-ratings {
+            background-color: white;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .sustainability-ratings .rating {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: gold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="index.html"><span class="title-eco">Eco</span><span class="title-bites">Bites</span></a></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="recipes.html">Recipes</a></li>
+                <li><a href="favorites.html">Favorites</a></li>
+                <li><a href="profile.html">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="recipe-header">
+            <img src="images/fried_rice.png" alt="Fried Rice">
+            <div class="recipe-info">
+                <h2>Fried Rice</h2>
+                <div class="recipe-meta">
+                    <div class="meta-item">
+                        <img src="icons/clock.png" alt="Clock Icon">
+                        <span>125 mins</span>
+                    </div>
+                    <div class="meta-item">
+                        <img src="icons/flame.png" alt="Flame Icon">
+                        <span>163 cal per 100g</span>
+                    </div>
+                    <div class="meta-item">
+                        <img src="icons/heart.png" alt="Heart Icon">
+                        <button id="favorite-button">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="recipe-description">
+            <p>This Sustainable Fried Rice recipe focuses on using leftover rice, seasonal vegetables, and plant-based ingredients. It is versatile, reduces food waste, and is both healthy and delicious.</p>
+        </section>
+        <section class="ingredients">
+            <h3>Ingredients</h3>
+            <ul>
+                <li>2 cups (preferably a day old) leftover cooked rice</li><li>1 tablespoon (or sustainably sourced oil) vegetable oil</li><li>1, diced onion</li><li>1, diced or julienned (or any seasonal root vegetable) carrot</li><li>1/2 cup (fresh, frozen, or leftover) peas</li><li>1/2 cup, diced (or any seasonal vegetable like zucchini or cabbage) bell pepper</li><li>2 cloves, minced garlic</li><li>2 tablespoons (low-sodium option for healthier dish) soy sauce or tamari</li><li>1 tablespoon (optional, for extra flavor) sesame oil</li><li>1/4 teaspoon (or fresh ginger, minced) ground ginger</li><li>1-2, sliced (for garnish) green onions</li><li>1 tablespoon (for added tang) rice vinegar or lime juice</li><li>1/4 cup, fresh (optional, for garnish) cilantro</li><li>1/4 cup (optional, such as roasted sunflower seeds or peanuts) nuts or seeds</li><li>1-2 (optional, for added protein, or tofu for a plant-based version) eggs</li>
+            </ul>
+        </section>
+        <section class="instructions">
+            <h3>Instructions</h3>
+            <ol>
+                <li>If you don't have leftover rice, cook rice ahead of time and let it cool completely. Ideally, use day-old rice for better texture when frying.</li><li>Heat the vegetable oil in a large skillet or wok over medium heat. Add the diced onion and cook for 3-4 minutes until softened.</li><li>Add the carrots and bell pepper (or other seasonal vegetables) and cook for an additional 4-5 minutes, stirring occasionally.</li><li>Add the garlic and ginger and cook for another 1-2 minutes until fragrant.</li><li>Push the vegetables to one side of the pan. If you're using eggs, crack them into the empty space and scramble them until fully cooked. If using tofu, crumble and cook it until golden in the same manner.</li><li>Add the cold, leftover rice to the pan, breaking up any clumps. Stir to mix the rice with the vegetables and eggs/tofu.</li><li>Add the soy sauce, sesame oil (if using), and rice vinegar or lime juice. Stir to coat the rice evenly in the sauces.</li><li>Taste the fried rice and adjust seasoning with additional soy sauce, salt, or pepper if needed.</li><li>Once everything is well mixed and heated through, remove from heat and serve.</li><li>Garnish with green onions, fresh cilantro, and optional nuts or seeds for extra crunch. Serve warm as a main dish or as a side with other plant-based dishes.</li>
+            </ol>
+        </section>
+        <div class="note-section">
+            <h3>Your Notes</h3>
+            <textarea id="note-input" placeholder="Add your notes here..."></textarea>
+            <button id="save-note">Save Note</button>
+            <button id="delete-note" style="display: none;">Delete Note</button>
+            <div id="note-status"></div>
+        </div>
+        <section class="sustainability">
+            <h3>Why This Recipe is Sustainable</h3>
+            <ul>
+                <li>Leftover Rice: Using leftover rice helps reduce food waste. If you have any rice from previous meals, repurposing it into fried rice is an excellent way to make use of it.</li><li>Seasonal Vegetables: This recipe is very flexible—use what vegetables are in season in your area, such as zucchini, cabbage, spinach, or peas. Buying seasonal produce lowers the carbon footprint and supports local farmers.</li><li>Plant-Based: Fried rice can easily be made plant-based by using tofu (instead of eggs) or skipping the eggs entirely. Plant-based meals have a smaller environmental footprint compared to animal-based ones.</li><li>Minimal Packaging: By using fresh, local vegetables and pantry staples, this recipe avoids excessive packaging and processed foods.</li><li>Customizable: You can add any leftover veggies, grains, or plant-based protein, making this recipe great for reducing food waste and utilizing whatever you have in your fridge.</li>
+            </ul>
+            <div class="sustainability-ratings">
+                <h4>Sustainability Ratings</h4>
+                <div class="rating"><span>Water Usage:</span><span class="gold-stars">★★★★☆</span></div><div class="rating"><span>Energy Impact:</span><span class="gold-stars">★★★★☆</span></div><div class="rating"><span>Waste Consideration:</span><span class="gold-stars">★★★★★</span></div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 EcoBites. All rights reserved.</p>
+    </footer>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const recipeName = "Fried Rice"; // Unique key for this recipe
+        const noteInput = document.getElementById("note-input");
+        const saveButton = document.getElementById("save-note");
+        const deleteButton = document.getElementById("delete-note");
+        const noteStatus = document.getElementById("note-status");
+
+        // Load saved note if it exists
+        const savedNote = localStorage.getItem(`note-${recipeName}`);
+        if (savedNote) {
+            noteInput.value = savedNote;
+            deleteButton.style.display = "inline-block";
+        }
+
+        // Save note
+        saveButton.addEventListener("click", function () {
+            const noteContent = noteInput.value.trim();
+            if (noteContent) {
+                localStorage.setItem(`note-${recipeName}`, noteContent);
+                noteStatus.textContent = "Note saved!";
+                deleteButton.style.display = "inline-block";
+            } else {
+                noteStatus.textContent = "Note cannot be empty.";
+            }
+        });
+
+        // Delete note
+        deleteButton.addEventListener("click", function () {
+            localStorage.removeItem(`note-${recipeName}`);
+            noteInput.value = "";
+            noteStatus.textContent = "Note deleted.";
+            deleteButton.style.display = "none";
+        });
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const recipeName = "Fried Rice"; // Unique identifier for this recipe
+        const favoriteButton = document.getElementById("favorite-button");
+
+        // Load favorites from localStorage
+        let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+        // Check if this recipe is already a favorite
+        if (favorites.includes(recipeName)) {
+            favoriteButton.textContent = "Remove from Favorites";
+        }
+
+        // Toggle favorite status on button click
+        favoriteButton.addEventListener("click", function () {
+            let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+            if (favorites.includes(recipeName)) {
+                // Remove from favorites
+                favorites = favorites.filter(fav => fav !== recipeName);
+                favoriteButton.textContent = "Add to Favorites";
+            } else {
+                // Add to favorites
+                favorites.push(recipeName);
+                favoriteButton.textContent = "Remove from Favorites";
+            }
+
+            // Save updated favorites list to localStorage
+            localStorage.setItem("favorites", JSON.stringify(favorites));
+        });
+    });
+</script>
+</html>

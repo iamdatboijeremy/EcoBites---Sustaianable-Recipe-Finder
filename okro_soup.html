@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe - Okro Soup</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .recipe-header {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background-color: #f8f8f8;
+        }
+        .recipe-header img {
+            max-width: 300px;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+        .recipe-info {
+            flex-grow: 1;
+        }
+        .recipe-meta {
+            display: flex;
+            gap: 20px;
+        }
+        .meta-item img {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+        .sustainability-ratings {
+            background-color: white;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .sustainability-ratings .rating {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: gold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="index.html"><span class="title-eco">Eco</span><span class="title-bites">Bites</span></a></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="recipes.html">Recipes</a></li>
+                <li><a href="favorites.html">Favorites</a></li>
+                <li><a href="profile.html">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="recipe-header">
+            <img src="images/okro_soup.png" alt="Okro Soup">
+            <div class="recipe-info">
+                <h2>Okro Soup</h2>
+                <div class="recipe-meta">
+                    <div class="meta-item">
+                        <img src="icons/clock.png" alt="Clock Icon">
+                        <span>65 mins</span>
+                    </div>
+                    <div class="meta-item">
+                        <img src="icons/flame.png" alt="Flame Icon">
+                        <span>160 cal per 100g</span>
+                    </div>
+                    <div class="meta-item">
+                        <img src="icons/heart.png" alt="Heart Icon">
+                        <button id="favorite-button">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="recipe-description">
+            <p>A sustainable take on the classic Nigerian dish, featuring plant-based proteins, seasonal okra, and eco-friendly practices.</p>
+        </section>
+        <section class="ingredients">
+            <h3>Ingredients</h3>
+            <ul>
+                <li>2 cups (locally grown and in season) fresh okra</li><li>2 tablespoons (sustainably sourced, or olive oil as an alternative) palm oil</li><li>1, chopped (local and in season) onion</li><li>2 cloves, minced garlic</li><li>1 small, chopped (or seasonal peppers) bell pepper</li><li>2, blended (or canned if fresh is unavailable) tomatoes</li><li>1 tablespoon (optional, or substitute with nutritional yeast) ground crayfish</li><li>1 teaspoon (or to taste) ground pepper</li><li>1 teaspoon (or fresh if available) dried thyme</li><li>2 cups (preferably homemade) vegetable broth</li><li>1 cup (black-eyed peas, kidney beans, or chickpeas) cooked beans</li><li>1/2 cup (optional, for added protein) tofu or tempeh</li><li>to taste salt</li><li>1/4 cup (parsley or cilantro, optional, for garnish) fresh herbs</li><li>1/4 cup (optional, for added richness) roasted peanuts or groundnut paste</li>
+            </ul>
+        </section>
+        <section class="instructions">
+            <h3>Instructions</h3>
+            <ol>
+                <li>Wash the okra thoroughly. Slice or chop the okra into small pieces, or blend lightly for a smoother texture.</li><li>Heat palm oil (or olive oil) in a large pot over medium heat. Sauté onions and garlic for 2-3 minutes until softened.</li><li>Add chopped bell pepper and cook for 2 minutes. Stir in blended tomatoes, ground crayfish (or nutritional yeast), ground pepper, and thyme. Cook for 5-7 minutes until thick and fragrant.</li><li>Add cooked beans and tofu (or tempeh) to the pot. Stir and cook for 5-7 minutes to incorporate flavors.</li><li>Pour in the vegetable broth, bring to a simmer, and cook for 10 minutes to blend flavors.</li><li>Add chopped okra and cook for 5-7 minutes, allowing it to thicken the soup naturally. Adjust the consistency by adding more okra or cooking longer.</li><li>Taste and adjust seasoning with salt, pepper, or additional broth. Stir in roasted peanuts or groundnut paste if desired for extra richness.</li><li>Serve hot with your preferred side dish, such as rice, fufu, pounded yam, or boiled plantains.</li>
+            </ol>
+        </section>
+        <div class="note-section">
+            <h3>Your Notes</h3>
+            <textarea id="note-input" placeholder="Add your notes here..."></textarea>
+            <button id="save-note">Save Note</button>
+            <button id="delete-note" style="display: none;">Delete Note</button>
+            <div id="note-status"></div>
+        </div>
+        <section class="sustainability">
+            <h3>Why This Recipe is Sustainable</h3>
+            <ul>
+                <li>Plant-Based Protein: Beans, tofu, or tempeh replace meat, reducing the environmental footprint.</li><li>Local and Seasonal Ingredients: Emphasizes local, seasonal produce like okra and tomatoes to reduce food miles.</li><li>Homemade Broth: Encourages broth made from kitchen scraps to reduce waste and packaging.</li><li>Sustainable Palm Oil: Suggests sustainably sourced palm oil or olive oil to protect biodiversity.</li><li>Waste Reduction: Promotes repurposing leftovers and scraps, reducing food and packaging waste.</li><li>Minimal Packaging: Focuses on fresh ingredients to reduce reliance on packaged goods.</li>
+            </ul>
+            <div class="sustainability-ratings">
+                <h4>Sustainability Ratings</h4>
+                <div class="rating"><span>Water Usage:</span><span class="gold-stars">★★★★☆</span></div><div class="rating"><span>Energy Impact:</span><span class="gold-stars">★★★★★</span></div><div class="rating"><span>Waste Consideration:</span><span class="gold-stars">★★★★★</span></div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 EcoBites. All rights reserved.</p>
+    </footer>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const recipeName = "Okro Soup"; // Unique key for this recipe
+        const noteInput = document.getElementById("note-input");
+        const saveButton = document.getElementById("save-note");
+        const deleteButton = document.getElementById("delete-note");
+        const noteStatus = document.getElementById("note-status");
+
+        // Load saved note if it exists
+        const savedNote = localStorage.getItem(`note-${recipeName}`);
+        if (savedNote) {
+            noteInput.value = savedNote;
+            deleteButton.style.display = "inline-block";
+        }
+
+        // Save note
+        saveButton.addEventListener("click", function () {
+            const noteContent = noteInput.value.trim();
+            if (noteContent) {
+                localStorage.setItem(`note-${recipeName}`, noteContent);
+                noteStatus.textContent = "Note saved!";
+                deleteButton.style.display = "inline-block";
+            } else {
+                noteStatus.textContent = "Note cannot be empty.";
+            }
+        });
+
+        // Delete note
+        deleteButton.addEventListener("click", function () {
+            localStorage.removeItem(`note-${recipeName}`);
+            noteInput.value = "";
+            noteStatus.textContent = "Note deleted.";
+            deleteButton.style.display = "none";
+        });
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const recipeName = "Okro Soup"; // Unique identifier for this recipe
+        const favoriteButton = document.getElementById("favorite-button");
+
+        // Load favorites from localStorage
+        let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+        // Check if this recipe is already a favorite
+        if (favorites.includes(recipeName)) {
+            favoriteButton.textContent = "Remove from Favorites";
+        }
+
+        // Toggle favorite status on button click
+        favoriteButton.addEventListener("click", function () {
+            let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+            if (favorites.includes(recipeName)) {
+                // Remove from favorites
+                favorites = favorites.filter(fav => fav !== recipeName);
+                favoriteButton.textContent = "Add to Favorites";
+            } else {
+                // Add to favorites
+                favorites.push(recipeName);
+                favoriteButton.textContent = "Remove from Favorites";
+            }
+
+            // Save updated favorites list to localStorage
+            localStorage.setItem("favorites", JSON.stringify(favorites));
+        });
+    });
+</script>
+</html>
